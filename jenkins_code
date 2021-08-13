@@ -28,7 +28,7 @@ pipeline {
           stage('push docker image') {
             steps {
               sh '''docker login -u ${dockeruser} -p ${dockerpassword}
-              docker push kulbhushanmayer/devops:latest'''
+              docker push gauravchauhan124/devops:latest'''
             }
           }
            stage('Build Package') {
