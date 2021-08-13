@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+     agent {
+         label 'linux'
+          }
+      tools {
+         maven 'mvn_3.8.1'
+          }
 
     stages {
         stage('Hello') {
@@ -13,6 +18,11 @@ pipeline {
               git branch: 'master', credentialsId: 'GITHUB-CRED', url: 'https://github.com/kul-samples/java_sample_webapp.git'
              }
         }
+        stage('Build Package') {
+           steps {
+              sh 'mvn clean package'
+                 }
+           } 
         stage('How are you?') {
             steps {
                 echo 'How are you?'
