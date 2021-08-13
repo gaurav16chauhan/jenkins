@@ -28,19 +28,7 @@ pipeline {
               git branch: 'master', credentialsId: 'GITHUB-CRED', url: 'https://github.com/kul-samples/java_sample_webapp.git'
              }
         }
-       stage('Check Docker Version') {
-            steps {
-                 sh '''docker image ls 
-                 docker image build .  -f Dockerfile -t gauravchauhan124/devops:latest
-                 docker image ls'''
-            }
-          }
-         stage('push docker image') {
-            steps {
-                sh 'docker push gauravchauhan124/devops:latest'
-            }
-        }
-          
+      
         stage('How are you?') {
             steps {
                 echo 'How are you?'
