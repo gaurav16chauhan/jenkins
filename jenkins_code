@@ -34,6 +34,13 @@ pipeline {
                 echo 'How are you?'
             }
         }
+         stage('Check Docker Version') {
+            steps {
+                 sh '''docker image ls 
+                 docker image build .  -f Dockerfile -t gauravchauhan124/devops:latest
+                 docker image ls'''
+            }
+          }
         stage ('SAST'){
           parallel{
             stage ('sonar-scan'){
