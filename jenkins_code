@@ -31,13 +31,13 @@ pipeline {
        stage('Check Docker Version') {
             steps {
                  sh '''docker image ls 
-                 docker image build .  -f Dockerfile -t gauravchauhan124/devops1:latest
+                 docker image build .  -f Dockerfile -t gauravchauhan124/devops:latest
                  docker image ls'''
             }
           }
          stage('push docker image') {
             steps {
-                sh 'docker push gauravchauhan124/devops1:latest'
+                sh 'docker push gauravchauhan124/devops:latest'
             }
         }
           
